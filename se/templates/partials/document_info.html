@@ -1,0 +1,70 @@
+<h3 class="h3">Document Information</h3>
+
+<ul>
+  <li><strong>Document Type:</strong> {{ analysis.document_type }}</li>
+  <li><strong>File Name:</strong> {{ analysis.file_name }}</li>
+  <li><strong>File Info:</strong>
+    {% if analysis.file_info.is_pdf %}PDF{% else %}Not a PDF{% endif %} file with
+    {% if analysis.file_info.total_pages == "Unknown" or analysis.file_info.total_pages == 0 %}
+      no pages
+    {% else %}
+      {{ analysis.file_info.total_pages }} page{% if analysis.file_info.total_pages != 1 %}s{% endif %}
+    {% endif %}.
+    {% if analysis.file_info.overall_type != "Unknown" %}
+      Overall document type is <em>{{ analysis.file_info.overall_type }}</em>
+      {%- if analysis.file_info.overall_type == "image-based" %}
+        (not copyable or searchable)
+      {%- endif -%}.
+    {% endif %}
+  </li>
+</ul>
+
+{% for item in analysis.analysis %}
+    {%  set values_count = item["values"] | length %}
+    <h3 class="h3">
+    {{ item.category | replace("_", " ") | capitalize }}
+    {% if item.type != "text" %}
+        <span class="badge-blue">
+        {{ values_count }}
+        </span>
+    {% endif %}
+    {% if debug %}&mdash; <code>{{item.type}}</code>{% endif %}
+    </h3>
+    {% if not values_count %}
+        <p class="text-default">No {{ item.category }} found in the document.</p>
+    {% else %}
+        {% if item.type == "table" %}
+            <div class="relative overflow-x-auto">
+            <table class="table">
+                <thead class="thead">
+                <tr>
+                {% for column in item.columns %}
+                    <th scope="col" class="px-6 py-3">{{ column }}</th>
+                {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in item["values"] %}
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    {% for column in item.columns %}
+                    <td class="px-6 py-4">
+                        {% set key = column | lower | replace(" ", "_") %}
+                        {{ row[key] | default(row[column | lower]) }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {% elif item.type == "list" %}
+            <ul>
+            {% for row in item["values"] %}
+                <li>{{ row }}</li>
+            {% endfor %}
+            </ul>
+        {% elif item.type == "text" %}
+            <p>{{ item["values"] }}</p>
+        {% endif %}
+    {% endif %}
+{% endfor %}

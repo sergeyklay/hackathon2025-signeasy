@@ -1,0 +1,12 @@
+List the key dates mentioned in this document in JSON format as:
+{
+  "dates": [
+    {
+      "date": "YYYY-MM-DD",
+      "details": "What the date is for"
+    },
+    ...
+  ]
+}
+If no dates are mentioned, return {"dates": []}.
+Your entire response/output is going to consist of a single JSON object {}, and you will NOT wrap it within JSON markdown markers.

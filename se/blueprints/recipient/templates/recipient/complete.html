@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% from "macros/alerts.html" import alert %}
+
+{% block title %}Complete - SignEasy{% endblock %}
+
+{% block content %}
+  <section class="bg-white dark:bg-gray-900 flex w-full">
+    <div class="flex-auto max-w-full pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+
+      {% with steps=progress_steps %}
+        {% include "partials/progress_steps.html" %}
+      {% endwith %}
+
+      <div class="pb-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+        <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          Complete
+        </h1>
+      </div>
+
+      <div id="mainContent">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {{ alert(message, category) }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+
+        <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+            Thank you for using SignEasy!
+        </h2>
+        <p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
+            We hope you found SignEasy useful. Please review another document or return to the home page.
+        </p>
+
+        <div class="my-12">
+          <a href="{{ url_for('main.home') }}" class="default-button">
+            Return to home
+          </a>
+          <a href="{{ url_for('recipient.welcome') }}" class="primary-button">
+            Review another document
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+Use step-by-step reasoning to extract all obligations from the document. Format the result in JSON:
+{
+  "obligations": [
+    {
+      "party": "Party Name",
+      "obligation": "Obligation description"
+    },
+    ...
+  ]
+}
+If no obligations are found, return {"obligations": []}.
+Your entire response/output is going to consist of a single JSON object {}, and you will NOT wrap it within JSON markdown markers.

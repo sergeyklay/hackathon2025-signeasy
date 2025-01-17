@@ -1,0 +1,11 @@
+List the risks mentioned in this document in JSON format as:
+{
+  "risks": [
+    {
+      "risk": "Description of risk"
+    },
+    ...
+  ]
+}
+If no risks are mentioned, return {"risks": []}.
+Your entire response/output is going to consist of a single JSON object {}, and you will NOT wrap it within JSON markdown markers.

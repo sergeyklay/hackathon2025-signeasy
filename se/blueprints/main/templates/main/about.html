@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}About - SignEasy{% endblock %}
+
+{% block content %}
+<section class="bg-white dark:bg-gray-900 flex w-full">
+  <div class="flex-auto max-w-full pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+    <div class="pb-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+      <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        About
+      </h1>
+      <p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
+        SignEasy is a document signing and analysis platform that helps individuals and businesses
+        manage agreements, streamline signatures, and gain valuable insights. Our platform is designed
+        to simplify complex processes, save time, and reduce errors.
+      </p>
+    </div>
+
+    <div id="mainContent">
+      <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+        Send Document Workflow
+      </h2>
+
+      <p>
+        The sender flow in SignEasy is a simple and straightforward process that allows users to upload a document,
+        analyze it, and send it for signing. The sender flow is designed to be intuitive and user-friendly, making it
+        easy for users to prepare documents for signing and send them to recipients.
+      </p>
+
+      <p>
+        Bellow is the graphical representation of the sender flow in SignEasy:
+      </p>
+
+      <figure class="max-w-lg">
+        <img class="h-auto max-w-lg rounded-lg" src="{{ url_for('static',filename='img/send-workflow.png') }}" alt="Send Document Workflow">
+        <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
+          Figure #1: Send Document Workflow
+        </figcaption>
+      </figure>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</section>
+{% endblock %}

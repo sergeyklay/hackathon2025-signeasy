@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% from "macros/alerts.html" import alert %}
+
+{% block title %}Send - SignEasy{% endblock %}
+
+{% block content %}
+  <section class="bg-white dark:bg-gray-900 flex w-full">
+    <div class="flex-auto max-w-full pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+
+      {% with steps=progress_steps %}
+        {% include "partials/progress_steps.html" %}
+      {% endwith %}
+
+      <div class="pb-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+        <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          Send documents with SignEasy
+        </h1>
+        <p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
+          Preparing a document for signing using SignEasy. SignEasy will analyze the uploaded document, identify required
+          fields (signature, date, initials), and provide a summary of key elements.
+        </p>
+      </div>
+      <div id="mainContent">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {{ alert(message, category) }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+          Upload Document
+        </h2>
+
+        <form class="max-w-screen-xl" action="{{ url_for('sender.upload') }}" method="post" enctype="multipart/form-data">
+          <div class="mb-5">
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_document">
+              Upload a document for analysis
+            </label>
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="document_help" id="user_document" type="file" name="file" accept=".pdf">
+          </div>
+          <div class="flex items-start mb-5">
+            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="document_help">
+              At the moment, we only support PDF documents.
+              Support for other document and file formats will be available in the near future.
+            </div>
+          </div>
+          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Upload
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,33 @@
+version: 2
+
+updates:
+
+  - package-ecosystem: pip
+    directory: '/'
+    schedule:
+      interval: daily
+    assignees:
+      - sergeyklay
+    versioning-strategy: increase
+    target-branch: "main"
+    open-pull-requests-limit: 20
+
+
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+    assignees:
+      - sergeyklay
+    versioning-strategy: increase
+    target-branch: "main"
+    open-pull-requests-limit: 20
+
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: daily
+    assignees:
+      - sergeyklay
+

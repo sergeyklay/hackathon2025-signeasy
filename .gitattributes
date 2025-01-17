@@ -1,0 +1,4 @@
+# Auto-detect text files, ensure they use LF.
+* text=auto eol=lf
+
+.envrc linguist-language=bash

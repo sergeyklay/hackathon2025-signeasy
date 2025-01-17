@@ -1,0 +1,12 @@
+Hi {{ recipient -}},
+
+You have been invited to sign a document. Please use the link below to proceed.
+Sign Document: {{ full_url }}
+
+Alternatively, you can visit {{ url_for('recipient.welcome', _external=True) }} and enter your Deal ID: {{ analysis_id }}.
+
+Here are the details of the document provided by the sender:
+
+{{ message }}
+
+If you have any questions, please contact us: {{ url_for('main.contact', _external=True) }}.

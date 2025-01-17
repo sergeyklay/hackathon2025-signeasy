@@ -1,0 +1,43 @@
+You are an expert in document analysis and reasoning. Carefully review the provided document to extract the missing categories of information. Use step-by-step reasoning to ensure a thorough analysis.
+
+Here is the context:
+1. The document has already been analyzed, and the following information have been extracted in form of JSON:
+{{analysis_result}}
+2. The analysis result should contain the following categories relevant for this document type: {{analysis_categories}}
+3. However, the following categories were incomplete or undefined in the initial analysis:
+{% for k, v in missing_data.items() %}
+  - {{k}}: {{v}}
+{% endfor %}
+
+Focus only on extracting these missing categories: {{missing_categories}}
+
+Rules:
+1. Think step-by-step to ensure logical and complete extraction.
+2. If you cannot confidently determine a category, state explicitly that the information is not present or you unable to extract/find it.
+3. Return result in valid JSON format with keys corresponding to the missing categories.
+
+Return your response in a valid JSON format with the following structure:
+{
+  "categories": {
+    "risks": [
+      "Potential legal disputes related to the property.",
+      "Possible undisclosed defects in the property."
+    ],
+    "dates": [
+      {"date": "2025-01-01", "details": "Execution deadline for the agreement"},
+      {"date": "2025-01-02", "details": "Effective date"},
+      ...
+    ],
+    ...
+  },
+  "missing_data": {
+    "obligations": "is missing in analysis result",
+    ...
+  }
+}
+
+If cannot determine any categories, return {"categories": {}, "missing_data": {"category_name": "reason why it is missing"}}.
+
+Your entire response/output is going to consist of a single JSON object {}, and you will NOT wrap it within JSON markdown markers.
+
+Start your reasoning now.

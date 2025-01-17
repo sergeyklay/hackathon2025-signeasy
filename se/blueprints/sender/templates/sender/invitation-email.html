@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Invitation to Sign</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6;">
+<h1>Hi {{ recipient -}},</h1>
+<p>
+  You have been invited to sign a document. Please click the button below to proceed.
+</p>
+<p>
+  <a href="{{ full_url }}" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
+    Sign Document
+  </a>
+</p>
+<p>
+  Alternatively, you can visit <a href="{{ url_for('recipient.welcome', _external=True) }}">our website</a>
+  and enter your Deal ID: <strong>{{ analysis_id }}</strong>
+</p>
+
+<p>
+  Here are the details of the document provided by the sender:
+
+  <blockquote>
+    {{ message }}
+  </blockquote>
+<p>
+  If you have any questions, please <a href="{{ url_for('main.contact', _external=True) }}">contact us</a>.
+</p>
+</body>
+</html>

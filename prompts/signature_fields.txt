@@ -1,0 +1,15 @@
+Identify where signatures, initials, or dates should be placed in the document and return the result in JSON format as:
+{
+  "signature_fields": [
+    {
+      "field_type": "Type of the filed (e.g., Signature, Initials, Date, etc.)",
+      "party": "Name of Party",
+      "page": "Page number",
+      "signed": "Yes (Yes if the field is already signed, No otherwise)"
+    },
+    ...
+  ]
+}
+Use page numbers information provided to this request to determine the page number. If the page numbers information is not available, you can assume that the first page is numbered as 1. You can use also the common sense to determine the page number by document type.
+If no signature fields are mentioned, return {"signature_fields": []}.
+Your entire response/output is going to consist of a single JSON object {}, and you will NOT wrap it within JSON markdown markers.

@@ -1,0 +1,187 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind base;
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+
+/**
+ * Use this directive to control where Tailwind injects the hover, focus,
+ * responsive, dark mode, and other variants of each class.
+ *
+ * If omitted, Tailwind will append these classes to the very end of
+ * your stylesheet by default.
+ */
+@tailwind variants;
+
+.navbar {
+    @apply bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900;
+}
+
+.navbar-container {
+    @apply container flex flex-wrap items-center justify-between mx-auto;
+}
+
+.navbar-logo {
+    @apply flex items-center;
+}
+
+.navbar-logo img {
+    @apply h-6 mr-3 sm:h-9;
+}
+
+.navbar-logo-text {
+    @apply self-center text-xl font-semibold whitespace-nowrap dark:text-white;
+}
+
+.navbar-menu {
+    @apply items-center justify-between hidden w-full md:flex md:w-auto md:order-1;
+}
+
+.navbar-links {
+    @apply flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700;
+}
+
+.navbar-link {
+    @apply block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700;
+}
+
+.navbar-link-active {
+    @apply text-white bg-blue-700 md:bg-transparent md:text-blue-700;
+}
+
+.container {
+    @apply w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between;
+}
+
+footer {
+    @apply fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600;
+}
+
+.footer-copy {
+    @apply text-sm text-gray-500 sm:text-center dark:text-gray-400;
+}
+
+.footer-links {
+    @apply flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0;
+}
+
+.footer-links a {
+    @apply hover:underline me-4 md:me-6;
+}
+
+.footer-links li:last-child a {
+    @apply me-0;
+}
+
+#mainContent > p {
+    @apply mb-4 text-base font-normal text-gray-600 dark:text-gray-400;
+}
+
+#mainContent > h2 {
+    @apply mt-8 mb-4 text-2xl font-semibold dark:text-white;
+}
+
+#mainContent > h3,
+#mainContent > h4 {
+    @apply mt-8 mb-4 text-xl font-semibold dark:text-white;
+}
+
+#mainContent > p {
+    @apply mb-4 text-base font-normal text-gray-600 dark:text-gray-400;
+}
+
+#mainContent > p > a,
+#mainContent > ul > li > a,
+#mainContent > ol > li > a,
+#mainContent > ul > li > p > a,
+#mainContent > ol > li > p > a {
+    @apply font-medium text-gray-700 underline dark:text-gray-300 decoration-1 underline-offset-2 decoration-blue-600 dark:decoration-blue-500;
+}
+
+#mainContent > p > a:hover,
+#mainContent > ul > li > a:hover,
+#mainContent > ol > li > a:hover,
+#mainContent > ul > li > p > a:hover,
+#mainContent > ol > li > p > a:hover {
+    @apply text-gray-900 decoration-2 dark:text-white;
+}
+
+#mainContent > p > code,
+#mainContent > ul > li > code,
+#mainContent > ol > li > code {
+    @apply px-1 font-mono text-sm text-blue-600 break-all dark:text-blue-400;
+}
+
+#mainContent > ul {
+    list-style: disc;
+}
+
+#mainContent > ol {
+    list-style: decimal;
+}
+
+#mainContent p > strong {
+    @apply text-gray-900 dark:text-white;
+}
+
+#mainContent > ul,
+#mainContent > ol {
+    padding-left: 1rem;
+}
+
+#mainContent > ul > li,
+#mainContent > ol > li {
+    @apply mb-4 text-base font-normal text-gray-600 dark:text-gray-400;
+}
+
+.current-step {
+    @apply text-red-600 dark:text-red-500;
+}
+
+.default-button {
+    @apply text-gray-900 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-3 text-center inline-flex items-center me-2 border border-gray-200 hover:text-blue-700 focus:z-10 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700;
+}
+
+.cancel-button {
+    @apply text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-base px-5 py-3 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900;
+}
+
+.primary-button {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-3 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.cta-button {
+    @apply inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700;
+}
+
+.badge-blue {
+    @apply bg-blue-100 text-blue-800 text-lg font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2;
+}
+
+.h3 {
+    @apply flex items-center text-3xl font-bold dark:text-white;
+}
+
+.text-default {
+    @apply mb-3 text-gray-500 dark:text-gray-400;
+}
+
+.table {
+    @apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400;
+}
+
+.thead {
+    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+}

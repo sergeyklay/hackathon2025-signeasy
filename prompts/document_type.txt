@@ -1,0 +1,6 @@
+Identify the type of this document and return the result in JSON format as:
+{
+  "document_type": "Type of the document (e.g., Purchase Agreement, Lease Contract)"
+}
+If the document type cannot be determined, return {"document_type": "Unknown"}.
+Your entire response/output is going to consist of a single JSON object {}, and you will NOT wrap it within JSON markdown markers.

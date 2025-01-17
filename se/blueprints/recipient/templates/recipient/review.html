@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% from "macros/alerts.html" import alert %}
+
+{% block title %}Analysis - SignEasy{% endblock %}
+
+{% block content %}
+  <section class="bg-white dark:bg-gray-900 flex w-full">
+    <div class="flex-auto max-w-full pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+
+      {% with steps=progress_steps %}
+        {% include "partials/progress_steps.html" %}
+      {% endwith %}
+
+      <div class="pb-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+        <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          Analysis Results
+        </h1>
+        <p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
+          We have analyzed the document. Below is the information about the uploaded document that
+          we were able to determine at this stage. Please review the analysis results carefully.
+          You can choose to cancel or proceed to the options for signing and sending your document.
+        </p>
+      </div>
+
+      <div id="mainContent">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {{ alert(message, category) }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        {% if analysis %}
+          {% with analysis=analysis, debug=debug %}
+            {% include "partials/document_info.html" %}
+          {% endwith %}
+
+          <div class="my-12">
+            <a href="{{ url_for('main.home') }}" class="cancel-button">
+              {% include 'partials/icons/cancel-left.html' %} Decline
+            </a>
+            {% if download_link %}
+            <a href="{{ download_link }}" class="default-button">
+              {% include 'partials/icons/download-left.html' %} Download document
+            </a>
+            {% endif %}
+            <a href="{{ url_for('recipient.complete') }}" class="primary-button">
+              Sign {% include 'partials/icons/arrow-right.html' %}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

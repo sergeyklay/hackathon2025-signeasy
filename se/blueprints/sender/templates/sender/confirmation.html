@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% from "macros/alerts.html" import alert %}
+
+{% block title %}Confirmation - SignEasy{% endblock %}
+
+{% block content %}
+  <section class="bg-white dark:bg-gray-900 flex w-full">
+    <div class="flex-auto max-w-full pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+      <div class="pb-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+        <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            Confirmation
+        </h1>
+      </div>
+
+      <div id="mainContent">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {{ alert(message, category) }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <div class="my-12">
+          <a href="{{ url_for('main.home') }}" class="default-button">
+            Return to home
+          </a>
+          <a href="{{ url_for('sender.welcome') }}" class="default-button">
+            Send another document
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

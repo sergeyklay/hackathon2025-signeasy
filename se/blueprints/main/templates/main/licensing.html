@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Licensing - SignEasy{% endblock %}
+
+{% block content %}
+<section class="bg-white dark:bg-gray-900 flex w-full">
+  <div class="flex-auto max-w-full pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+    <div class="pb-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+      <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        Licensing
+      </h1>
+      <p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
+        This page outlines the licensing terms applicable to the SignEasy Proof of Concept (PoC).<br>
+        Effective Date: January 1, 2025
+      </p>
+    </div>
+
+    <div id="mainContent">
+      <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+        Ownership
+      </h2>
+
+      <p>
+        The SignEasy project and its associated technologies are proprietary to
+        <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://www.airslate.com/" target="_blank">
+          airSlate Inc
+        </a>.
+        All rights not explicitly granted are reserved.
+      </p>
+
+      <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+        Document Ownership
+      </h2>
+
+      <p>
+        All uploaded documents remain the property of their respective owners. SignEasy does not claim ownership over user-uploaded content.
+      </p>
+
+      <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+        Open-Source Libraries
+      </h2>
+
+      <ul>
+        <li class="text-default">
+          <strong>Tailwind CSS:</strong> MIT License
+        </li>
+        <li class="text-default">
+          <strong>Flask:</strong> BSD License
+        </li>
+        <li class="text-default">
+          <strong>Llama-index:</strong> Apache 2.0 License
+        </li>
+      </ul>
+
+      <p>
+        For detailed information on these libraries, please refer to their respective license agreements.
+      </p>
+
+      <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+        Disclaimer
+      </h2>
+
+      <p>
+        This Proof of Concept is provided "as is" without any warranties, express or implied.
+        It is intended solely for demonstration purposes.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

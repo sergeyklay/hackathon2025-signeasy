@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      # These should always correspond to pull requests, so ignore them for
+      # the push trigger and let them be triggered by the pull_request
+      # trigger, avoiding running the workflow twice.  This is a minor
+      # optimization so there's no need to ensure this is comprehensive.
+      - 'dependabot/**'
+
+  pull_request:
+    branches:
+      - main
+
+env:
+  PYTHONUNBUFFERED: '1'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Python ${{ matrix.python }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    # The maximum number of minutes to let a workflow run
+    # before GitHub automatically cancels it. Default: 360
+    timeout-minutes: 30
+
+    strategy:
+      # When set to true, GitHub cancels
+      # all in-progress jobs if any matrix job fails.
+      fail-fast: false
+
+      matrix:
+        python:
+          - '3.10'
+          - '3.11'
+          - '3.12'
+        os:
+          - ubuntu-latest
+          #- macos-latest
+          #- windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+
+      - name: Set up Python ${{ matrix.python }}
+        id: setup-python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.8.4
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: testing-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            testing-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-
+
+      - name: Validates the content of the pyproject.toml
+        run: poetry check
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --with=testing --no-root
+
+      - name: Run unit tests with coverage
+        run: |
+          source $VENV
+          coverage run -m pytest ./se ./tests
+          coverage combine
+          coverage xml
+
+      - uses: codecov/codecov-action@v5.1.2
+        if: success()
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: false
+          name: codecov-umbrella
+          flags: unittests
+          env_vars: OS,PYTHON
+          files: ./coverage/xml/coverage.xml
+
+      - name: Success Reporting
+        if: success()
+        run: git log --format=fuller -5
