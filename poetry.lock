@@ -1160,19 +1160,19 @@ pydantic = ">=1.10"
 
 [[package]]
 name = "llama-index"
-version = "0.12.14"
+version = "0.12.15"
 description = "Interface between LLMs and your data"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "llama_index-0.12.14-py3-none-any.whl", hash = "sha256:cafbac9f08f1f7293169bfd3c75545db3b761742ea829ba6940c3f2c3b1c2d26"},
-    {file = "llama_index-0.12.14.tar.gz", hash = "sha256:aa74315b32e93a77e285519459d77b98be7db9ae4c5aa64aac2c54cc919c838f"},
+    {file = "llama_index-0.12.15-py3-none-any.whl", hash = "sha256:badb0da25dc0a8e2d7c34734378c3f5d88a96b6eb7ffb2c6935bbe7ca33f6f22"},
+    {file = "llama_index-0.12.15.tar.gz", hash = "sha256:2d77c3264d624776e8dace51397c296ae438f3f0be5abf83f07100930a4d5329"},
 ]
 
 [package.dependencies]
 llama-index-agent-openai = ">=0.4.0,<0.5.0"
 llama-index-cli = ">=0.4.0,<0.5.0"
-llama-index-core = ">=0.12.14,<0.13.0"
+llama-index-core = ">=0.12.15,<0.13.0"
 llama-index-embeddings-openai = ">=0.3.0,<0.4.0"
 llama-index-indices-managed-llama-cloud = ">=0.4.0"
 llama-index-llms-openai = ">=0.3.0,<0.4.0"
@@ -1217,13 +1217,13 @@ llama-index-llms-openai = ">=0.3.0,<0.4.0"
 
 [[package]]
 name = "llama-index-core"
-version = "0.12.14"
+version = "0.12.15"
 description = "Interface between LLMs and your data"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "llama_index_core-0.12.14-py3-none-any.whl", hash = "sha256:6fdb30e3fadf98e7df75f9db5d06f6a7f8503ca545a71e048d786ff88012bd50"},
-    {file = "llama_index_core-0.12.14.tar.gz", hash = "sha256:378bbf5bf4d1a8c692d3a980c1a6ed3be7a9afb676a4960429dea15f62d06cd3"},
+    {file = "llama_index_core-0.12.15-py3-none-any.whl", hash = "sha256:0c65ca72c4fb43a77a2463f2114d6eb570681d729139879ed659179798ecab7f"},
+    {file = "llama_index_core-0.12.15.tar.gz", hash = "sha256:f9aaeef792db24d490b1e3484d2bbd1b3c43e7a24a40fd6dbd1b298efb1f9429"},
 ]
 
 [package.dependencies]
@@ -3018,4 +3018,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10, <4"
-content-hash = "ae37a1af8b9be845e2dece9d4cb41cb4ec6cffb595e34371609b57a288eaac8e"
+content-hash = "d3fc8c483780526ba9461f1b93bcf316e3e4c25b5f43d7bc1ead25cdaa69a0df"
