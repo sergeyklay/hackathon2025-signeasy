@@ -1160,19 +1160,19 @@ pydantic = ">=1.10"
 
 [[package]]
 name = "llama-index"
-version = "0.12.14"
+version = "0.12.16"
 description = "Interface between LLMs and your data"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "llama_index-0.12.14-py3-none-any.whl", hash = "sha256:cafbac9f08f1f7293169bfd3c75545db3b761742ea829ba6940c3f2c3b1c2d26"},
-    {file = "llama_index-0.12.14.tar.gz", hash = "sha256:aa74315b32e93a77e285519459d77b98be7db9ae4c5aa64aac2c54cc919c838f"},
+    {file = "llama_index-0.12.16-py3-none-any.whl", hash = "sha256:c94d0cf6735219d97d91e2eca5bcfac89ec1583990917f934b075d5a45686cf6"},
+    {file = "llama_index-0.12.16.tar.gz", hash = "sha256:4fd5f5b94eb3f8dd470bb8cc0e1b985d931e8f31473266ef69855488fd8ae3f2"},
 ]
 
 [package.dependencies]
 llama-index-agent-openai = ">=0.4.0,<0.5.0"
 llama-index-cli = ">=0.4.0,<0.5.0"
-llama-index-core = ">=0.12.14,<0.13.0"
+llama-index-core = ">=0.12.16,<0.13.0"
 llama-index-embeddings-openai = ">=0.3.0,<0.4.0"
 llama-index-indices-managed-llama-cloud = ">=0.4.0"
 llama-index-llms-openai = ">=0.3.0,<0.4.0"
@@ -1217,13 +1217,13 @@ llama-index-llms-openai = ">=0.3.0,<0.4.0"
 
 [[package]]
 name = "llama-index-core"
-version = "0.12.14"
+version = "0.12.16.post1"
 description = "Interface between LLMs and your data"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "llama_index_core-0.12.14-py3-none-any.whl", hash = "sha256:6fdb30e3fadf98e7df75f9db5d06f6a7f8503ca545a71e048d786ff88012bd50"},
-    {file = "llama_index_core-0.12.14.tar.gz", hash = "sha256:378bbf5bf4d1a8c692d3a980c1a6ed3be7a9afb676a4960429dea15f62d06cd3"},
+    {file = "llama_index_core-0.12.16.post1-py3-none-any.whl", hash = "sha256:95904a44f25e122a45963541c56a50c4daf2ffaf062d1a3224c84a6dc9e6801f"},
+    {file = "llama_index_core-0.12.16.post1.tar.gz", hash = "sha256:8fed0554ae71b6c1f80b53164723af28c887951eef7aa1b44ba6c8103c0efb2c"},
 ]
 
 [package.dependencies]
@@ -3018,4 +3018,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10, <4"
-content-hash = "687238c9ed609da47765fef5496554e18d91ccc6925c123ac6a039144d37b576"
+content-hash = "483aa51b24423a785c7921e1ea3c5712bf977617932a5a3e194d52c21fdcb438"
